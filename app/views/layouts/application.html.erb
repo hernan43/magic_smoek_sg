@@ -11,9 +11,6 @@
 
     <%= yield :head %>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
@@ -24,6 +21,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"> 
+      <nav class="container d-flex flex-wrap justify-content-center">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"> 
+          <span class="fs-4">Magic Smoek</span> 
+        </a> 
+        
+        <ul class="nav nav-pills"> 
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link active", aria: { current: "page" } %>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">About</a>
+          </li> 
+        </ul> 
+      </nav>
+    </header>
+
+    <div class="container">
+      <%= yield %>
+    </div> 
   </body>
 </html>

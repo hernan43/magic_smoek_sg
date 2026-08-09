@@ -62,3 +62,6 @@ group :test do
 end
 
 gem 'superglue'
+
+gem "dartsass-rails", "~> 0.5.1"
+gem 'bootstrap', '~> 5.3.8'

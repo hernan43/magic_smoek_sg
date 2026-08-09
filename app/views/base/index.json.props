@@ -1,4 +1,5 @@
-json.body do
+json.body(defer: [:auto, placeholder: { greet: "Waiting for Greet"}]) do
+  sleep 5
   json.greet "Hello world"
 end
 

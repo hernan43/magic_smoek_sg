@@ -12,7 +12,7 @@ export default function BaseIndex() {
   return (
     <>
       <h1>{greet}</h1>
-      <span>{footer}</span>
+      <span>{footer}</span>    
     </>
   )
 }
