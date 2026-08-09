@@ -1,4 +1,5 @@
 import BaseIndex from '../views/base/index'
+import UsersDashboard from '../views/users/dashboard'
 
 // import your page component #todo fix output of new lines
 // e.g import PostsEdit from '../views/posts/edit'
@@ -31,7 +32,8 @@ import BaseIndex from '../views/base/index'
 // ```
 //
 const pageIdentifierToPageComponent = {
-  'base/index': BaseIndex
+  'base/index': BaseIndex,
+  'users/dashboard': UsersDashboard
 };
 
 export { pageIdentifierToPageComponent }

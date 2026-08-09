@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_action :use_jsx_rendering_defaults
   # Enables Superglue rendering defaults for sensible view directories.
   #
   # without `use_jsx_rendering_defaults`:
