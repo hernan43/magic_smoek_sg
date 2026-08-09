@@ -1,3 +1,7 @@
+import ProjectsNew from '@views/projects/new'
+import ProjectsShow from '@views/projects/show'
+import ProjectsEdit from '@views/projects/edit'
+import ProjectsIndex from '@views/projects/index'
 import BaseIndex from '../views/base/index'
 import UsersDashboard from '../views/users/dashboard'
 
@@ -32,6 +36,10 @@ import UsersDashboard from '../views/users/dashboard'
 // ```
 //
 const pageIdentifierToPageComponent = {
+  'projects/new': ProjectsNew,
+  'projects/show': ProjectsShow,
+  'projects/edit': ProjectsEdit,
+  'projects/index': ProjectsIndex,
   'base/index': BaseIndex,
   'users/dashboard': UsersDashboard
 };

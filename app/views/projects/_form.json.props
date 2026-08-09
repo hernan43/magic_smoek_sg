@@ -1,0 +1,6 @@
+form_props(model: @project) do |f|
+  f.text_field(:name)
+  f.text_area(:description)
+  f.check_box(:is_public)
+  f.submit
+end

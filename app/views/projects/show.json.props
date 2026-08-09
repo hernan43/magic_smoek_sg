@@ -1,0 +1,10 @@
+json.id @project.id
+json.userId @project.user_id
+json.name @project.name
+json.description @project.description
+json.isPublic @project.is_public
+json.createdAt @project.created_at
+json.updatedAt @project.updated_at
+
+json.projectsPath projects_path
+json.editProjectPath edit_project_path(@project)

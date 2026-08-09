@@ -1,0 +1,18 @@
+json.projects do
+  json.array! @projects do |project|
+    json.id project.id
+    json.userId project.user_id
+    json.name project.name
+    json.description project.description
+    json.isPublic project.is_public
+    json.createdAt project.created_at
+    json.updatedAt project.updated_at
+    json.editProjectPath edit_project_path(project)
+    json.projectPath project_path(project)
+    json.deleteForm do
+      form_props(model: project, method: :delete)
+    end
+  end
+end
+
+json.newProjectPath new_project_path

@@ -1,0 +1,9 @@
+if @project.errors.any?
+  flash.now["projectFormErrors"] = @project.errors.as_json
+end
+
+json.projectForm(partial: 'form') do
+end
+
+json.projectPath project_path(@project)
+json.projectsPath projects_path
