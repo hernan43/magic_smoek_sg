@@ -3,5 +3,20 @@
   "private": true,
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.12.0",
+    "@thoughtbot/superglue": "^1.0.3",
+    "esbuild": "^0.28.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-redux": "^9.3.0",
+    "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "@thoughtbot/candy_wrapper": "^0.0.4",
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4"
   }
 }

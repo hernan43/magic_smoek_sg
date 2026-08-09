@@ -1,3 +1,5 @@
+import BaseIndex from '../views/base/index'
+
 // import your page component #todo fix output of new lines
 // e.g import PostsEdit from '../views/posts/edit'
 
@@ -29,6 +31,7 @@
 // ```
 //
 const pageIdentifierToPageComponent = {
+  'base/index': BaseIndex
 };
 
 export { pageIdentifierToPageComponent }
