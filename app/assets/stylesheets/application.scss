@@ -11,3 +11,15 @@
  
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+.card-header a {
+    text-decoration: none;
+}
+
+.card-header a > h3 {
+    margin-bottom: 0;
+}
+
+.multiline {
+    white-space: pre-line;
+}

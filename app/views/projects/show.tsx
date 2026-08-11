@@ -26,7 +26,7 @@ export default function ProjectsShow() {
   return (
     <Layout>
       <h1>{name}</h1>
-      <p>
+      <p className="multiline">
         {description}
       </p>
       <p>
