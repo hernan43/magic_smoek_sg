@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @project.is_public = true # make them public by default
   end
 
   # GET /projects/1/edit

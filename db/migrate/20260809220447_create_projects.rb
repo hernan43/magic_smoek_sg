@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration[8.1]
       t.integer :user_id
       t.string :name
       t.text :description
-      t.boolean :is_public
+      t.boolean :is_public, default: true
 
       t.timestamps
     end

@@ -125,25 +125,33 @@ export type FieldBaseProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label: string
   errorKey?: string
   children?: ReactNode
+  wrapperClassName?: string
+  labelClassName?: string
 }
 
-/**
- * A Field component.
- *
- * Combines a label, input and a FieldError. Please modify this to your liking.
- */
 export const FieldBase = ({
   label,
   errorKey,
   children,
+  wrapperClassName = 'mb-3',
+  labelClassName = 'form-label',
   ...props
 }: FieldBaseProps) => {
+  const errorMessage = useErrorMessage(errorKey)
+
   return (
-    <>
-      <label htmlFor={props.id}>{label}</label>
-      {children || <input {...props} />}
-      <FieldError errorKey={errorKey} />
-    </>
+    <div className={wrapperClassName}>
+      <label htmlFor={props.id} className={labelClassName}>
+        {label}
+      </label>
+      {children || (
+        <input
+          {...props}
+          className={`form-control${errorMessage ? ' is-invalid' : ''} ${props.className ?? ''}`}
+        />
+      )}
+      {errorMessage && <div className="invalid-feedback">{errorMessage}</div>}
+    </div>
   )
 }
 
@@ -168,16 +176,16 @@ export const Checkbox = ({
 }: CheckboxProps) => {
   const { name } = rest
   return (
-    <FieldBase {...rest} errorKey={errorKey}>
+    <FieldBase
+      {...rest}
+      errorKey={errorKey}
+      wrapperClassName="mb-3 form-check"
+      labelClassName="form-check-label"
+    >
       {includeHidden && (
-        <input
-          type="hidden"
-          name={name}
-          defaultValue={uncheckedValue}
-          autoComplete="off"
-        />
+        <input type="hidden" name={name} defaultValue={uncheckedValue} autoComplete="off" />
       )}
-      <input type="checkbox" {...rest}></input>
+      <input type="checkbox" {...rest} className="form-check-input" />
     </FieldBase>
   )
 }
@@ -508,11 +516,16 @@ export type TextAreaProps = React.InputHTMLAttributes<HTMLTextAreaElement> &
  * Mimics the rails equivalent. Please modify to your liking.
  */
 export const TextArea = ({ type: _type, errorKey, ...rest }: TextAreaProps) => {
-  const { label } = rest
+  const { label, rows = 4, className, ...inputProps } = rest
+  const errorMessage = useErrorMessage(errorKey)
 
   return (
     <FieldBase label={label} errorKey={errorKey} id={rest.id}>
-      <textarea {...rest} />
+      <textarea
+        {...inputProps}
+        rows={rows}
+        className={`form-control${errorMessage ? ' is-invalid' : ''}${className ? ` ${className}` : ''}`}
+      />
     </FieldBase>
   )
 }

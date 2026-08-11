@@ -5,6 +5,6 @@ end
 json.projectForm(partial: 'form') do
 end
 
-json.projectsPath projects_path
+json.dashboardPath user_dashboard_path
 
 
