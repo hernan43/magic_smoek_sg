@@ -10,40 +10,31 @@ type ContentProps = {
   isPublic: boolean
   createdAt: string
   updatedAt: string
-  projectsPath: string
+  dashboardPath: string
   editProjectPath: string
 }
 
 export default function ProjectsShow() {
   const {
-    userId,
     name,
     description,
     isPublic,
     editProjectPath,
-    projectsPath,
+    dashboardPath,
   } = useContent<ContentProps>()
 
   return (
     <Layout>
+      <h1>{name}</h1>
       <p>
-        <strong>User:</strong>
-        {userId}
-      </p>
-      <p>
-        <strong>Name:</strong>
-        {name}
-      </p>
-      <p>
-        <strong>Description:</strong>
         {description}
       </p>
       <p>
-        <strong>Is public:</strong>
+        <strong>public? </strong>
         {isPublic ? 'Yes' : 'No'}
       </p>
-      <a href={ editProjectPath } data-sg-visit>Edit</a>
-      <a href={ projectsPath } data-sg-visit>Back</a>
+      <a href={ editProjectPath } data-sg-visit>edit</a> | &nbsp;
+      <a href={ dashboardPath } data-sg-visit>back to dashboard</a>
     </Layout>
   )
 }

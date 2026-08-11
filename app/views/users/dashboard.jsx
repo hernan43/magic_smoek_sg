@@ -1,5 +1,6 @@
 import React from 'react'
 import { useContent } from '@thoughtbot/superglue';
+import ProjectCard from '@javascript/components/ProjectCard'
 
 export default function UsersDashboard() {
   const {
@@ -16,16 +17,16 @@ export default function UsersDashboard() {
       {current_user.projects.length === 0 ? (
         <p>You have no projects yet.</p>
       ) : (
-        <ul>
+        <div className="project-list">
         {current_user.projects.map(project => (
-          <li key={project.id}>
-            <h3>{project.name}</h3>
-            <p>{project.description}</p>
-            <p>Updated at: {new Date(project.updated_at).toLocaleString()}</p>
-          </li>
+            <ProjectCard key={project.id} project={project} />
         ))}
-      </ul>
+      </div>
       )}
+
+      <div className="actions">
+        <a href={current_user.new_project_path} data-sg-visit>add a project</a>
+      </div>
     </>
   )
 }

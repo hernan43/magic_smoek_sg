@@ -6,5 +6,6 @@ json.isPublic @project.is_public
 json.createdAt @project.created_at
 json.updatedAt @project.updated_at
 
+json.dashboardPath user_dashboard_path
 json.projectsPath projects_path
 json.editProjectPath edit_project_path(@project)

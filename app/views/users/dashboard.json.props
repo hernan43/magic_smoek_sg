@@ -5,6 +5,8 @@ json.body do
         json.last_name current_user.last_name
         json.email current_user.email
 
+        json.new_project_path new_project_path
+
         json.projects do
             json.array! current_user.projects do |project|
                 json.id project.id
@@ -13,6 +15,7 @@ json.body do
                 json.is_public project.is_public
                 json.created_at project.created_at
                 json.updated_at project.updated_at
+                json.path project_path(project)
             end
         end
 
