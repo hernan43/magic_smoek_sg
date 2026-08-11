@@ -13,7 +13,6 @@ export default function UsersDashboard() {
     <>
       <h1>{current_user.first_name}'s dashboard</h1>
       
-      <h2>Projects</h2>
       {current_user.projects.length === 0 ? (
         <p>You have no projects yet.</p>
       ) : (
