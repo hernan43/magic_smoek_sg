@@ -104,6 +104,13 @@ export function Toolbar({ editor }: { editor: Editor | null }) {
         </button>
         <button
           type="button"
+          className={`btn btn-outline-secondary${editor.isActive('underline') ? ' active' : ''}`}
+          onClick={() => editor.chain().focus().toggleUnderline().run()}
+        >
+          <em>U</em>
+        </button>
+        <button
+          type="button"
           className={`btn btn-outline-secondary${editor.isActive('strike') ? ' active' : ''}`}
           onClick={() => editor.chain().focus().toggleStrike().run()}
         >
