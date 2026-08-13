@@ -62,7 +62,7 @@ export function Toolbar({ editor }: { editor: Editor | null }) {
           disabled={!editor.can().undo()}
           onClick={() => editor.chain().focus().undo().run()}
         >
-          ↶
+          ↺
         </button>
         <button
           type="button"
@@ -70,7 +70,7 @@ export function Toolbar({ editor }: { editor: Editor | null }) {
           disabled={!editor.can().redo()}
           onClick={() => editor.chain().focus().redo().run()}
         >
-          ↷
+          ↻
         </button>
       </div>
 
