@@ -1,5 +1,6 @@
 // components/ProjectListItem.jsx
 import React from 'react'
+import { ProjectDescription } from '@javascript/components'
 
 export default function ProjectCard({ project }) {
   return (
@@ -10,9 +11,7 @@ export default function ProjectCard({ project }) {
         </a>
       </div>
       <div className="card-body">
-          <p className="card-text">
-              {project.description}
-          </p>
+          <ProjectDescription html={project.description} />
           <p className="small text-muted">last updated: {new Date(project.updated_at).toLocaleString()}</p>
           <a href={project.path} className="btn btn-primary">view</a>
       </div>

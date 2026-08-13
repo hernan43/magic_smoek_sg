@@ -11,7 +11,7 @@ json.body do
             json.array! current_user.projects do |project|
                 json.id project.id
                 json.name project.name
-                json.description project.description.truncate(128) # don't need the whole f'n show
+                json.description project.description
                 json.is_public project.is_public
                 json.created_at project.created_at
                 json.updated_at project.updated_at

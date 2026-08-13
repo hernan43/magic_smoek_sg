@@ -5,8 +5,6 @@ import {
   Layout,
   TextField,
   TextFieldProps,
-  TextArea,
-  TextAreaProps,
   Checkbox,
   CheckboxProps,
   SubmitButton,
@@ -20,7 +18,7 @@ type ContentProps = {
   dashboardPath: string
   projectForm: FormProps<{
     name: TextFieldProps
-    description: TextAreaProps
+    description: RichTextFieldProps
     isPublic: CheckboxProps
     submit: SubmitButtonProps
   }>
@@ -40,7 +38,12 @@ export default function ProjectsEdit() {
 
             <Form {...form} extras={extras} validationErrors={validationErrors} data-sg-visit>
               <TextField {...inputs.name} label="Name" errorKey="name" />
-              <TextArea {...inputs.description} label="Description" errorKey="description" rows={4} />
+              <RichTextField
+                {...inputs.description}
+                label="Description"
+                errorKey="description"
+                placeholder="Describe the project..."
+              />
               <Checkbox {...inputs.isPublic} label="Make it public?" errorKey="is_public" />
 
               <div className="d-flex justify-content-between align-items-center mt-4">

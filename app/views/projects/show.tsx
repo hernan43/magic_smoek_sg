@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout } from '@javascript/components'
+import { Layout, ProjectDescription } from '@javascript/components'
 import { useContent } from '@thoughtbot/superglue'
 
 type ContentProps = {
@@ -26,9 +26,7 @@ export default function ProjectsShow() {
   return (
     <Layout>
       <h1>{name}</h1>
-      <p className="multiline">
-        {description}
-      </p>
+      <ProjectDescription html={description} />
       <p>
         <strong>public? </strong>
         {isPublic ? 'Yes' : 'No'}

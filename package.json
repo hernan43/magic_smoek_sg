@@ -7,6 +7,11 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",
     "@thoughtbot/superglue": "^1.0.3",
+    "@tiptap/extension-link": "^3.30.0",
+    "@tiptap/extension-placeholder": "^3.30.0",
+    "@tiptap/react": "^3.30.0",
+    "@tiptap/starter-kit": "^3.30.0",
+    "dompurify": "^3.4.13",
     "esbuild": "^0.28.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
@@ -15,6 +20,7 @@
   },
   "devDependencies": {
     "@thoughtbot/candy_wrapper": "^0.0.4",
+    "@types/dompurify": "^3.0.5",
     "@types/node": "^26.2.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4"
