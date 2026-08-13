@@ -12,6 +12,7 @@ import {
   SubmitButton,
   SubmitButtonProps
 } from '@javascript/components'
+import { RichTextField, RichTextFieldProps } from '@javascript/components/RichTextField'
 import { useContent } from '@thoughtbot/superglue'
 import { useAppSelector } from '@javascript/store'
 
@@ -25,7 +26,7 @@ type ContentProps = {
   }>
 }
 
-export default function ProjectsNew() {
+export default function ProjectsEdit() {
   const { projectForm, dashboardPath } = useContent<ContentProps>()
   const { inputs, form, extras } = projectForm
   const validationErrors = useAppSelector((state) => state.flash['projectFormErrors'])
@@ -35,7 +36,7 @@ export default function ProjectsNew() {
       <div className="container py-5" style={{ maxWidth: '560px' }}>
         <div className="card shadow-sm">
           <div className="card-body p-4">
-            <h1 className="h4 mb-4">New Project</h1>
+            <h1 className="h4 mb-4">Edit Project</h1>
 
             <Form {...form} extras={extras} validationErrors={validationErrors} data-sg-visit>
               <TextField {...inputs.name} label="Name" errorKey="name" />
