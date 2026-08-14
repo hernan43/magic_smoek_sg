@@ -18,7 +18,6 @@ export default function ProjectsShow() {
   const {
     name,
     description,
-    isPublic,
     editProjectPath,
     dashboardPath,
   } = useContent<ContentProps>()
@@ -27,12 +26,8 @@ export default function ProjectsShow() {
     <Layout>
       <h1>{name}</h1>
       <RichTextOutput html={description} />
-      <p>
-        <strong>public? </strong>
-        {isPublic ? 'Yes' : 'No'}
-      </p>
       <a href={ editProjectPath } data-sg-visit>edit</a> | &nbsp;
-      <a href={ dashboardPath } data-sg-visit>back to dashboard</a>
+      <a href={ dashboardPath } data-sg-visit>back to projects</a>
     </Layout>
   )
 }

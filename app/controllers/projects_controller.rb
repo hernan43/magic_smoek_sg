@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = current_user.projects
+    @projects = current_user.projects.kept.order(updated_at: :desc)
   end
 
   # GET /projects/1
