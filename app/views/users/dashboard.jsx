@@ -11,8 +11,6 @@ export default function UsersDashboard() {
 
   return (
     <>
-      <h1>{current_user.first_name}'s dashboard</h1>
-      
       {current_user.projects.length === 0 ? (
         <p>You have no projects yet.</p>
       ) : (
@@ -22,10 +20,6 @@ export default function UsersDashboard() {
         ))}
       </div>
       )}
-
-      <div className="actions">
-        <a href={current_user.new_project_path} data-sg-visit>add a project</a>
-      </div>
     </>
   )
 }

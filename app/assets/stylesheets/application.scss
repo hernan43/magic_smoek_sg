@@ -12,6 +12,10 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
+div#app {
+    margin-top: 20px;
+}
+
 .card-header a {
     text-decoration: none;
 }
@@ -23,3 +27,4 @@
 .multiline {
     white-space: pre-line;
 }
+

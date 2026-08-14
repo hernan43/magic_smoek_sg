@@ -6,6 +6,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Magic Smoek">
     <meta name="mobile-web-app-capable" content="yes">
+
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -21,25 +23,29 @@
   </head>
 
   <body>
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"> 
-      <nav class="container d-flex flex-wrap justify-content-center">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"> 
-          <span class="fs-4">Magic Smoek</span> 
-        </a> 
-        
-        <ul class="nav nav-pills"> 
+    <header class="border-bottom bg-body-tertiary">
+      <nav class="container d-flex flex-wrap align-items-center justify-content-between py-2">
+        <div class="d-flex align-items-center gap-3">
+          <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+            <span class="fs-4">Magic Smoek</span>
+          </a>
+
+          <% if user_signed_in? %>
+            <%= link_to "Start a project", new_project_path, class: "btn btn-outline-primary" %>
+          <% end %>
+        </div>
+
+        <ul class="nav nav-pills">
           <li class="nav-item">
-            <%= link_to "Home", root_path, class: "nav-link", aria: { current: "page" } %>
+            <%= link_to "Dashboard", user_dashboard_path,
+                class: "nav-link #{'active' if current_page?(user_dashboard_path)}" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Dashboard", user_dashboard_path, class: "nav-link" %>
-          </li>
-        <% if user_signed_in? %> 
-          <li class="nav-item">
-            <%= link_to "Logout", destroy_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-        </ul> 
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Logout", destroy_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
       </nav>
     </header>
 
