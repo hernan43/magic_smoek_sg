@@ -18,13 +18,7 @@ type ContentProps = {
   projectPath: string
   projectsPath: string
   project: {
-    id: string
-    userId: number
     name: string
-    description: string
-    isPublic: boolean
-    createdAt: string
-    updatedAt: string
   }
   projectForm: FormProps<{
     name: TextFieldProps
