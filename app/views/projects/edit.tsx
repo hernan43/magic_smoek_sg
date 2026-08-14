@@ -15,7 +15,17 @@ import { useContent } from '@thoughtbot/superglue'
 import { useAppSelector } from '@javascript/store'
 
 type ContentProps = {
-  dashboardPath: string
+  projectPath: string
+  projectsPath: string
+  project: {
+    id: string
+    userId: number
+    name: string
+    description: string
+    isPublic: boolean
+    createdAt: string
+    updatedAt: string
+  }
   projectForm: FormProps<{
     name: TextFieldProps
     description: RichTextFieldProps
@@ -25,7 +35,7 @@ type ContentProps = {
 }
 
 export default function ProjectsEdit() {
-  const { projectForm, dashboardPath } = useContent<ContentProps>()
+  const { project, projectForm, projectPath } = useContent<ContentProps>()
   const { inputs, form, extras } = projectForm
   const validationErrors = useAppSelector((state) => state.flash['projectFormErrors'])
 
@@ -47,8 +57,8 @@ export default function ProjectsEdit() {
               <Checkbox {...inputs.isPublic} label="Make it public?" errorKey="is_public" />
 
               <div className="d-flex justify-content-between align-items-center mt-4">
-                <a href={dashboardPath} data-sg-visit className="btn btn-link ps-0">
-                  back to dashboard
+                <a href={projectPath} data-sg-visit className="btn btn-link ps-0">
+                  back to {project.name}
                 </a>
                 <SubmitButton {...inputs.submit} className="btn btn-primary">
                   {inputs.submit.text}

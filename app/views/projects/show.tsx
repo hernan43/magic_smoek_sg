@@ -10,7 +10,7 @@ type ContentProps = {
   isPublic: boolean
   createdAt: string
   updatedAt: string
-  dashboardPath: string
+  projectsPath: string
   editProjectPath: string
 }
 
@@ -19,7 +19,7 @@ export default function ProjectsShow() {
     name,
     description,
     editProjectPath,
-    dashboardPath,
+    projectsPath,
   } = useContent<ContentProps>()
 
   return (
@@ -27,7 +27,7 @@ export default function ProjectsShow() {
       <h1>{name}</h1>
       <RichTextOutput html={description} />
       <a href={ editProjectPath } data-sg-visit>edit</a> | &nbsp;
-      <a href={ dashboardPath } data-sg-visit>back to projects</a>
+      <a href={ projectsPath } data-sg-visit>back to projects</a>
     </Layout>
   )
 }

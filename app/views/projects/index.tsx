@@ -7,7 +7,6 @@ type ContentProps = {
   newProjectPath: string
   projects: {
     id: number,
-    userId: number
     name: string
     description: string
     isPublic: boolean
