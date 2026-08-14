@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+    include Discard::Model
+
     before_save :sanitize_description
 
     belongs_to :user

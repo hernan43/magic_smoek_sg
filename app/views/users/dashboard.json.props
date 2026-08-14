@@ -8,7 +8,7 @@ json.body do
         json.new_project_path new_project_path
 
         json.projects do
-            json.array! current_user.projects do |project|
+            json.array! current_user.projects.kept do |project|
                 json.id project.id
                 json.name project.name
                 json.description project.description
