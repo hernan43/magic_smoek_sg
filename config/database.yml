@@ -18,10 +18,10 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV.fetch("POSTGRES_USER") { "postgres" } %>
-  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "password" } %>
-  host: <%= ENV.fetch("POSTGRES_HOST") { "localhost" } %>
-  port: <%= ENV.fetch("POSTGRES_PORT") { "5432" } %>
+  username: <%= ENV.fetch("DATABASE_USERNAME") { "postgres" } %>
+  password: <%= ENV.fetch("DATABASE_PASSWORD") { "password" } %>
+  host: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
+  port: <%= ENV.fetch("DATABASE_PORT") { "5432" } %>
 
 development:
   <<: *default
@@ -91,8 +91,6 @@ production:
   primary: &primary_production
     <<: *default
     database: magic_smoek_production
-    username: magic_smoek
-    password: <%= ENV["MAGIC_SMOEK_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: magic_smoek_production_cache
