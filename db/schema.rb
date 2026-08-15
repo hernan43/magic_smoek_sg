@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_14_014857) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_15_005653) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.datetime "created_at"
+    t.string "scope"
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -20,9 +31,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_14_014857) do
     t.datetime "discarded_at"
     t.boolean "is_public"
     t.string "name"
+    t.string "slug"
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["discarded_at"], name: "index_projects_on_discarded_at"
+    t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,10 +57,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_14_014857) do
     t.datetime "reset_password_sent_at"
     t.string "reset_password_token"
     t.integer "sign_in_count", default: 0, null: false
+    t.string "slug"
     t.string "unlock_token"
     t.datetime "updated_at", null: false
     t.index ["discarded_at"], name: "index_users_on_discarded_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 end

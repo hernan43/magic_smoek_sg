@@ -1,5 +1,8 @@
 class Project < ApplicationRecord
     include Discard::Model
+    
+    extend FriendlyId
+    friendly_id :name, use: :slugged
 
     before_save :sanitize_description
 
