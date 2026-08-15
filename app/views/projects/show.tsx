@@ -24,10 +24,9 @@ export default function ProjectsShow() {
 
   return (
     <Layout>
-      <h1>{name}</h1>
+      <h1>{name} <a href={ editProjectPath } data-sg-visit>✎</a></h1>
       <RichTextOutput html={description} />
-      <a href={ editProjectPath } data-sg-visit>edit</a> | &nbsp;
-      <a href={ projectsPath } data-sg-visit>back to projects</a>
+      <a className="" href={ projectsPath } data-sg-visit>⇜ back to projects</a>
     </Layout>
   )
 }

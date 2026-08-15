@@ -51,8 +51,8 @@ export default function ProjectsEdit() {
               <Checkbox {...inputs.isPublic} label="Make it public?" errorKey="is_public" />
 
               <div className="d-flex justify-content-between align-items-center mt-4">
-                <a href={projectPath} data-sg-visit className="btn btn-link ps-0">
-                  back to {project.name}
+                <a href={projectPath} data-sg-visit className="">
+                  ⇜ back to {project.name}
                 </a>
                 <SubmitButton {...inputs.submit} className="btn btn-primary">
                   {inputs.submit.text}
