@@ -138,7 +138,7 @@ GEM
       actionview (>= 7.0, < 9.0)
       activesupport (>= 7.0, < 9.0)
       props_template (>= 0.30.0)
-    friendly_id (5.5.1)
+    friendly_id (5.7.0)
       activerecord (>= 4.0.0)
     fugit (1.13.0)
       et-orbi (~> 1.4)
@@ -461,7 +461,7 @@ DEPENDENCIES
   debug
   devise (~> 5.0)
   discard (~> 2.0)
-  friendly_id (~> 5.5.0)
+  friendly_id (~> 5.7.0)
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
@@ -528,7 +528,7 @@ CHECKSUMS
   ffi (1.17.4-x86_64-linux-gnu) sha256=9d3db14c2eae074b382fa9c083fe95aec6e0a1451da249eab096c34002bc752d
   ffi (1.17.4-x86_64-linux-musl) sha256=3fdf9888483de005f8ef8d1cf2d3b20d86626af206cbf780f6a6a12439a9c49e
   form_props (0.2.2) sha256=a46f8f7fd216b26ed6d6416d22334344a531188aee0e854aebc81761ee280cad
-  friendly_id (5.5.1) sha256=e018f2b89bfc143276fee6d378a64792385cd4fddd3d4fce501f59ec19c06207
+  friendly_id (5.7.0) sha256=b8994416ebaceebc7c60bc556e84ef32a3a663e2e582eb04c429216cc98de4c4
   fugit (1.13.0) sha256=a4f093fce740da52f216740a5041e2a594ea763cdb89e8b2754ca4399634ab18
   globalid (1.4.0) sha256=037f12fbf1d9d7a014d501c2d5c77356fd4ddd96d7a7991d6700bba96706f427
   google-protobuf (4.35.1) sha256=a3a6471331d918f58dfa4d014a8f6286f0af2cf4840216bde52fcf2ea3fe3726

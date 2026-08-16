@@ -70,4 +70,4 @@ gem "devise", "~> 5.0"
 
 gem 'discard', '~> 2.0'
 
-gem 'friendly_id', '~> 5.5.0'
+gem 'friendly_id', '~> 5.7.0'
