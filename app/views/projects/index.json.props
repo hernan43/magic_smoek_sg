@@ -1,12 +1,13 @@
 json.projects do
   json.array! @projects do |project|
     json.id project.id
-    json.userId project.user_id
+    json.user_id project.user_id
     json.name project.name
     json.description project.description
-    json.isPublic project.is_public
-    json.createdAt project.created_at
-    json.updatedAt project.updated_at
+    json.images project.images.map { |image| url_for(image) }
+    json.is_public project.is_public
+    json.created_at project.created_at
+    json.updated_at project.updated_at
     json.editProjectPath edit_project_path(project)
     json.projectPath project_path(project)
     json.deleteForm do

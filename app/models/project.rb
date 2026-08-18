@@ -4,13 +4,13 @@ class Project < ApplicationRecord
     extend FriendlyId
     friendly_id :name, use: :slugged
 
-    before_save :sanitize_description
-
     belongs_to :user
+    has_many_attached :images
     
     validates :name, presence: true
     validates :description, presence: true
 
+    before_save :sanitize_description
     private
 
     def sanitize_description

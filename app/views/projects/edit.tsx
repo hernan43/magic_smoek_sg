@@ -5,6 +5,8 @@ import {
   Layout,
   TextField,
   TextFieldProps,
+  FileField,
+  FileFieldProps,
   Checkbox,
   CheckboxProps,
   SubmitButton,
@@ -23,6 +25,7 @@ type ContentProps = {
   projectForm: FormProps<{
     name: TextFieldProps
     description: RichTextFieldProps
+    images: FileFieldProps
     isPublic: CheckboxProps
     submit: SubmitButtonProps
   }>
@@ -48,6 +51,7 @@ export default function ProjectsEdit() {
                 errorKey="description"
                 placeholder="Describe the project..."
               />
+              <FileField {...inputs.images} label="Images" errorKey="images" multiple />
               <Checkbox {...inputs.isPublic} label="Make it public?" errorKey="is_public" />
 
               <div className="d-flex justify-content-between align-items-center mt-4">

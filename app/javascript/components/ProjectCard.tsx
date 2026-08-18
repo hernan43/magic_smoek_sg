@@ -11,11 +11,15 @@ export default function ProjectCard({ project }) {
         </a>
       </div>
       <div className="card-img-top">
-        <svg aria-label="Placeholder: thumbnail" className="bd-placeholder-img" height="225" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
-        <title>Placeholder</title>
-        <rect width="100%" height="100%" fill="#55595c"></rect>
-        <text x="50%" y="50%" fill="#eceeef" dy=".3em" text-anchor="middle">Image goes here</text>
-        </svg>
+        {project.images && project.images.length > 0 ? (
+          <img src={project.images[0]} alt="Project image" className="img-fluid" />
+        ) : (
+          <svg aria-label="Placeholder: thumbnail" className="bd-placeholder-img" height="225" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#55595c"></rect>
+            <text x="50%" y="50%" fill="#eceeef" dy=".3em" textAnchor="middle">Image goes here</text>
+          </svg>
+        )}
       </div>
       <div className="card-body">
           <RichTextOutput html={project.description} />

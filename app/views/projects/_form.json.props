@@ -1,6 +1,7 @@
 form_props(model: @project) do |f|
   f.text_field(:name)
   f.text_area(:description)
+  f.file_field(:images, multiple: true)
   f.check_box(:is_public)
   f.submit
 end

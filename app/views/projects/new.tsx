@@ -5,13 +5,14 @@ import {
   Layout,
   TextField,
   TextFieldProps,
-  TextArea,
-  TextAreaProps,
+  FileField,
+  FileFieldProps,
   Checkbox,
   CheckboxProps,
   SubmitButton,
   SubmitButtonProps
 } from '@javascript/components'
+import { RichTextField, RichTextFieldProps } from '@javascript/components/RichTextField'
 import { useContent } from '@thoughtbot/superglue'
 import { useAppSelector } from '@javascript/store'
 
@@ -19,7 +20,8 @@ type ContentProps = {
   dashboardPath: string
   projectForm: FormProps<{
     name: TextFieldProps
-    description: TextAreaProps
+    description: RichTextFieldProps
+    images: FileFieldProps
     isPublic: CheckboxProps
     submit: SubmitButtonProps
   }>
@@ -39,7 +41,13 @@ export default function ProjectsNew() {
 
             <Form {...form} extras={extras} validationErrors={validationErrors} data-sg-visit>
               <TextField {...inputs.name} label="Name" errorKey="name" />
-              <TextArea {...inputs.description} label="Description" errorKey="description" rows={4} />
+              <RichTextField
+                {...inputs.description}
+                label="Description"
+                errorKey="description"
+                placeholder="Describe the project..."
+              />              
+              <FileField {...inputs.images} label="Images" errorKey="images" multiple />
               <Checkbox {...inputs.isPublic} label="Make it public?" errorKey="is_public" />
 
               <div className="d-flex justify-content-between align-items-center mt-4">
