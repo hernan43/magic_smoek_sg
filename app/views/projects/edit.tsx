@@ -13,6 +13,7 @@ import {
   SubmitButtonProps
 } from '@javascript/components'
 import { RichTextField, RichTextFieldProps } from '@javascript/components/RichTextField'
+import { SmallThumbnail } from '@javascript/components'
 import { useContent } from '@thoughtbot/superglue'
 import { useAppSelector } from '@javascript/store'
 
@@ -59,11 +60,9 @@ export default function ProjectsEdit() {
                   <div className="d-flex flex-wrap gap-3">
                     {project.images.map((image) => (
                       <div key={image.id} className="text-center" style={{ width: '100px' }}>
-                        <img
+                        <SmallThumbnail
                           src={image.url}
                           alt="Project thumbnail"
-                          className="img-thumbnail mb-1"
-                          style={{ width: '100px', height: '100px', objectFit: 'cover' }}
                         />
                         <div className="form-check d-flex justify-content-center align-items-center gap-1">
                           <input
