@@ -36,9 +36,14 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1
   def update
-    if @project.update(project_params)
-      redirect_to @project, notice: "Project was successfully updated.", status: :see_other
+    if params[:project][:images_to_remove].present?
+      @project.images.where(id: params[:project][:images_to_remove]).each(&:purge)
+    end
+
+    if @project.update(project_params.except(:images_to_remove))
+      redirect_to @project
     else
+      # re-render edit with errors
       render :edit, status: :unprocessable_content
     end
   end
@@ -52,11 +57,11 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = Project.friendly.find(params.expect(:id))
+      @project = current_user.projects.friendly.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.expect(project: [:name, :description, :is_public, images: []])
+      params.expect(project: [:name, :description, :is_public, images: [], images_to_remove: []])
     end
 end

@@ -18,6 +18,9 @@ import { useAppSelector } from '@javascript/store'
 
 type ContentProps = {
   dashboardPath: string
+  project: {
+    images: { id: number; url: string }[]
+  }
   projectForm: FormProps<{
     name: TextFieldProps
     description: RichTextFieldProps

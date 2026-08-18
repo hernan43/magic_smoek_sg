@@ -4,6 +4,7 @@ end
 
 json.project do
   json.name @project.name
+  json.images @project.images.map { |image| { id: image.id, url: url_for(image) } }
 end
 
 json.projectForm(partial: 'form') do

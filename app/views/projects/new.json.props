@@ -5,6 +5,8 @@ end
 json.projectForm(partial: 'form') do
 end
 
+json.project do
+  json.images @project.images.map { |image| { id: image.id, url: url_for(image) } }
+end
+
 json.dashboardPath user_dashboard_path
-
-

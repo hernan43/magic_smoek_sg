@@ -21,6 +21,7 @@ type ContentProps = {
   projectsPath: string
   project: {
     name: string
+    images: { id: number; url: string }[]
   }
   projectForm: FormProps<{
     name: TextFieldProps
@@ -51,7 +52,39 @@ export default function ProjectsEdit() {
                 errorKey="description"
                 placeholder="Describe the project..."
               />
-              <FileField {...inputs.images} label="Images" errorKey="images" multiple />
+
+              {project.images.length > 0 && (
+                <div className="mb-3">
+                  <label className="form-label d-block">Current Images</label>
+                  <div className="d-flex flex-wrap gap-3">
+                    {project.images.map((image) => (
+                      <div key={image.id} className="text-center" style={{ width: '100px' }}>
+                        <img
+                          src={image.url}
+                          alt="Project thumbnail"
+                          className="img-thumbnail mb-1"
+                          style={{ width: '100px', height: '100px', objectFit: 'cover' }}
+                        />
+                        <div className="form-check d-flex justify-content-center align-items-center gap-1">
+                          <input
+                            type="checkbox"
+                            className="form-check-input"
+                            id={`remove-image-${image.id}`}
+                            name="project[images_to_remove][]"
+                            value={image.id}
+                          />
+                          <label htmlFor={`remove-image-${image.id}`} className="form-check-label small text-danger">
+                            Remove
+                          </label>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <FileField {...inputs.images} label="Add More Images" errorKey="images" multiple />
+              
               <Checkbox {...inputs.isPublic} label="Make it public?" errorKey="is_public" />
 
               <div className="d-flex justify-content-between align-items-center mt-4">
