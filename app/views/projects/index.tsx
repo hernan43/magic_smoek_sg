@@ -27,11 +27,13 @@ export default function ProjectsIndex() {
       {projects.length === 0 ? (
         <p>You have no projects yet.</p>
       ) : (
-        <div className="project-list">
-        {projects.map(project => (
-            <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
+        <div className="project-list row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {projects.map(project => (
+            <div className="col">
+              <ProjectCard key={project.id} project={project} />
+            </div>
+          ))}
+        </div>
       )}
     </Layout>
   )
